@@ -1,0 +1,6 @@
+{
+  "name": "ObsidianPulse Analytics",
+  "description": "Executive B2B Retail Analytics platform executing SQL CTE window functions for MoM revenue run-rate and RFM customer quartile segmentation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-surface: #090D16;
+    --surface-container-lowest: #0a0e17;
+    --surface-container-low: #181b25;
+    --surface-container: #1c1f29;
+    --surface-container-high: #262a34;
+    --surface-container-highest: #31353f;
+    --primary: #a4c9ff;
+    --primary-container: #60a5fa;
+    --secondary: #4edea3;
+    --secondary-container: #00a572;
+    --tertiary: #d0bcff;
+    --on-surface: #dfe2ef;
+    --on-surface-variant: #c1c7d3;
+    --outline: #8b919d;
+    --outline-variant: #414751;
+  }
+
+  body {
+    background-color: #090D16;
+    color: #dfe2ef;
+    font-family: 'Geist', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+/* Custom scrollbars for data tables and code blocks */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0e17;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262a34;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #414751;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  vertical-align: middle;
+}

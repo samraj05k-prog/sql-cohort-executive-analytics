@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed-variant": "#004883", "on-primary-fixed": "#001c39", "surface-bright": "#353943", "tertiary": "#d0bcff", "error": "#ffb4ab", "inverse-on-surface": "#2c303a", "on-tertiary-fixed": "#23005c", "surface-container-lowest": "#0a0e17", "secondary-fixed": "#6ffbbe", "surface-container": "#1c1f29", "on-surface-variant": "#c1c7d3", "surface-dim": "#0f131c", "on-secondary-fixed": "#002113", "primary-fixed-dim": "#a4c9ff", "primary": "#a4c9ff", "surface-container-low": "#181b25", "on-surface": "#dfe2ef", "primary-fixed": "#d4e3ff", "on-secondary-container": "#00311f", "secondary-container": "#00a572", "tertiary-fixed-dim": "#d0bcff", "on-tertiary": "#3c0091", "inverse-surface": "#dfe2ef", "secondary": "#4edea3", "secondary-fixed-dim": "#4edea3", "error-container": "#93000a", "on-error-container": "#ffdad6", "on-primary": "#00315d", "on-secondary-fixed-variant": "#005236", "tertiary-container": "#b090ff", "on-background": "#dfe2ef", "outline": "#8b919d", "inverse-primary": "#0060ac", "on-error": "#690005", "surface-container-highest": "#31353f", "on-tertiary-fixed-variant": "#5516be", "surface-variant": "#31353f", "primary-container": "#60a5fa", "surface-container-high": "#262a34", "surface": "#0f131c", "background": "#0f131c", "on-secondary": "#003824", "tertiary-fixed": "#e9ddff", "surface-tint": "#a4c9ff", "outline-variant": "#414751", "on-tertiary-container": "#4600a7", "on-primary-container": "#003a6b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-md": "1rem", "gutter": "0.75rem", "space-2xl": "1.5rem", "margin-md": "1.5rem", "space-md": "0.5rem", "space-xs": "0.125rem", "margin": "1rem", "space-xl": "1rem", "space-lg": "0.75rem", "space-sm": "0.25rem" }, "fontFamily": { "body-lg": ["Geist"], "label-md": ["Geist"], "label-sm": ["Geist"], "display-lg-mobile": ["Space Grotesk"], "metric-num-xl": ["Geist"], "headline-xl-mobile": ["Space Grotesk"], "body-sm": ["Geist"], "body-md": ["Geist"], "headline-xl": ["Space Grotesk"], "headline-md": ["Space Grotesk"], "metric-num-md": ["Geist"], "display-lg": ["Space Grotesk"] }, "fontSize": { "body-lg": ["1rem", { "lineHeight": "1.5", "letterSpacing": "-0.005em", "fontWeight": "400" }], "label-md": ["0.75rem", { "lineHeight": "1", "letterSpacing": "0.06em", "fontWeight": "600" }], "label-sm": ["0.6875rem", { "lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "600" }], "display-lg-mobile": ["2rem", { "lineHeight": "1.15", "letterSpacing": "-0.02em", "fontWeight": "700" }], "metric-num-xl": ["2rem", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "600" }], "headline-xl-mobile": ["1.5rem", { "lineHeight": "1.25", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-sm": ["0.75rem", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-md": ["0.875rem", { "lineHeight": "1.4", "letterSpacing": "0em", "fontWeight": "400" }], "headline-xl": ["2rem", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-md": ["1.25rem", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }], "metric-num-md": ["1.125rem", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "500" }], "display-lg": ["3rem", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700" }] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen selection:bg-primary selection:text-on-primary"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-low border-b border-outline-variant"><div class="h-14 w-full px-margin-md flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg flex-shrink-0"><img alt="Executive Analytics Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UAu4U0ClrGrza5DtIk0ncIYBWy5wT0LwwFcDyhNbQMfEegnHP80IfF8MGQy8o7O8bSOQ4mQPL0_o536g5TpSpsYf1XxJEqXFkvbC-296mltWetxdapZE2mSqDx4sPGIm2RU5rCqzkuVjuP3DV01KGN-T4KBn52TdEjA6GCeoiTV8C7WeqqLUfKr74186TW5MYAcLOYaOKs0Ye9zOVzL5j-wOGh_B1n0SKQ4wEklwpzH2BqoQQlmjEc1z0"/><span class="font-headline-md text-headline-md tracking-tight uppercase text-on-surface hidden sm:inline-block">ObsidianPulse Analytics</span><div class="hidden xl:flex items-center gap-space-sm px-space-md py-space-xs bg-surface-container border border-outline-variant rounded-none"><span class="w-1.5 h-1.5 bg-secondary shadow-[0_0_6px_#4edea3]"></span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">PRODUCTION / US-EAST-1</span></div></div><div class="flex-1 max-w-xl mx-gutter-md hidden md:block"><div class="relative flex items-center bg-surface border border-outline-variant px-space-md py-space-xs focus-within:border-primary"><span class="material-symbols-outlined text-outline text-lg mr-space-md">search</span><input class="w-full bg-transparent border-0 p-0 font-body-sm text-body-sm text-on-surface placeholder-outline focus:outline-none focus:ring-0" placeholder="Search CTE queries, cohorts, or accounts..." type="text"/></div></div><div class="flex items-center gap-space-lg flex-shrink-0"><div class="hidden lg:flex items-center gap-space-sm bg-surface border border-outline-variant px-space-md py-space-xs"><span class="material-symbols-outlined text-outline text-sm">calendar_today</span><span class="font-label-md text-label-md text-on-surface uppercase">FY 2024 (YTD)</span><span class="material-symbols-outlined text-outline text-sm">arrow_drop_down</span></div><div class="relative cursor-pointer p-space-xs text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-none"></span></div><div class="h-6 w-px bg-outline-variant hidden sm:block"></div><div class="flex items-center gap-space-md"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8adlLUPH3IT2iFu5GB1j83GGzZ2B7ixeRKLuDq2sCYPFCSBDdgj9gkSiROMAR7nZgaIz3Orf1XlMihU87-jiY3KznYYTd9phZm6I3h1cQXFGwKMuFNHoP4h7yOD9HMolqRekOcUyaqsUpcoOeJboSZqb5Q3kTUmULyFffMOpTBuBfQorSev0sx7vVlfBu4RbmdMZFCOOzGgi8vKgre3VewI6UK_Fvx_v0Edxxfm3lxqdQt3jj50sr"/><div class="hidden sm:flex flex-col text-left"><span class="font-label-sm text-label-sm uppercase text-on-surface tracking-wider leading-none">Executive Access</span><span class="font-label-sm text-label-sm text-primary tracking-tight mt-space-xs">Chief Revenue Officer</span></div></div></div></div></header><aside class="fixed left-0 top-14 bottom-8 w-64 bg-surface-container-low border-r border-outline-variant z-40 flex flex-col justify-between overflow-y-auto"><div class="pt-space-lg pb-space-2xl"><div class="px-gutter-md pb-space-md text-outline font-label-sm text-label-sm uppercase tracking-widest">Telemetry Suites</div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-surface-container text-on-surface border-l-2 border-primary font-bold"><a aria-current="page" class="flex items-center px-gutter-md py-space-md transition-colors bg-surface-container text-on-surface border-l-2 border-primary font-bold" data-path="revenue-cohorts" href="#"><span class="material-symbols-outlined mr-space-md text-lg">trending_up</span>Revenue & Cohorts</a><a class="flex items-center px-gutter-md py-space-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md" data-path="rfm-segmentation" href="#"><span class="material-symbols-outlined mr-space-md text-lg">grid_view</span>RFM Segmentation</a><a class="flex items-center px-gutter-md py-space-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md" data-path="sql-cte-query-lab" href="#"><span class="material-symbols-outlined mr-space-md text-lg">terminal</span>SQL CTE Query Lab</a><a class="flex items-center px-gutter-md py-space-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md" data-path="retention-matrix" href="#"><span class="material-symbols-outlined mr-space-md text-lg">table_chart</span>Retention Matrix</a><a class="flex items-center px-gutter-md py-space-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings-db-config" href="#"><span class="material-symbols-outlined mr-space-md text-lg">settings_suggest</span>Settings & DB Config</a></nav></div><div class="p-gutter-md bg-surface border-t border-outline-variant"><div class="flex items-center justify-between text-outline font-label-sm text-label-sm uppercase tracking-wider mb-space-xs"><span>Node Status</span><span class="text-secondary">SYNCED</span></div><div class="w-full bg-surface-container-highest h-1"><div class="bg-secondary h-1 w-full"></div></div></div></aside><div class="pl-64 flex flex-col min-h-screen"><main class="w-full pt-14 pb-12 px-margin-md bg-surface flex-1"><div class="flex flex-col w-full text-on-surface">
+<!-- SECTION HEADER: EXECUTIVE TELEMETRY COMMAND -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg mb-space-xl">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-md flex-wrap">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container">MISSION CRITICAL // BI PIPELINE</span>
+<span class="w-1.5 h-1.5 bg-outline-variant"></span>
+<div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs shadow-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-none h-2 w-2 bg-secondary shadow-[0_0_8px_#4edea3]"></span>
+</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Database Connected</span>
+</div>
+</div>
+<div class="flex items-baseline gap-space-md flex-wrap">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight uppercase">Executive Retail Analytics</h1>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-base text-primary">dns</span>
+<span>PostgreSQL 16.2 / MariaDB CTE Engine (v4.8.1-live)</span>
+</div>
+</div>
+</div>
+<!-- Telemetry Actions -->
+<div class="flex items-center gap-space-md flex-wrap">
+<button class="flex items-center gap-space-xs px-space-lg py-space-xs bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface font-label-md text-label-md uppercase tracking-wider shadow-sm" id="refreshCteBtn">
+<span class="material-symbols-outlined text-sm text-primary transition-transform duration-500" id="refreshIcon">sync</span>
+<span>Refresh CTE Cache</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-lg py-space-xs bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface font-label-md text-label-md uppercase tracking-wider shadow-sm">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">file_download</span>
+<span>Export CSV</span>
+</button>
+<div class="relative inline-flex items-center bg-surface-container px-space-lg py-space-xs shadow-sm cursor-pointer group">
+<span class="material-symbols-outlined text-sm text-primary mr-space-xs">date_range</span>
+<span class="font-label-md text-label-md uppercase text-on-surface tracking-wider">FY 2024 (Last 12 Months)</span>
+<span class="material-symbols-outlined text-sm text-outline ml-space-xs group-hover:text-on-surface transition-colors">expand_more</span>
+</div>
+</div>
+</div>
+<!-- KPI TELEMETRY STRIP (BRUTALIST CARDS) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-md mb-space-xl">
+<!-- Tile 1: Total Orders -->
+<div class="bg-surface-container-low p-space-xl relative overflow-hidden shadow-md flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-primary"></div>
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Total Normalized Orders</span>
+<span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-secondary/10 text-secondary font-label-sm text-label-sm tracking-widest uppercase">
+<span class="material-symbols-outlined text-xs">arrow_upward</span>
+            +18.4% MoM
+          </span>
+</div>
+<div class="flex items-baseline justify-between gap-space-md">
+<div class="font-metric-num-xl text-metric-num-xl text-on-surface tracking-tight font-semibold">148,290</div>
+<!-- Sparkline representation -->
+<div class="w-24 h-8 flex items-end gap-[3px]">
+<div class="flex-1 bg-surface-container-highest h-2"></div>
+<div class="flex-1 bg-surface-container-highest h-3"></div>
+<div class="flex-1 bg-surface-container-highest h-4"></div>
+<div class="flex-1 bg-primary/40 h-4"></div>
+<div class="flex-1 bg-primary/60 h-5"></div>
+<div class="flex-1 bg-primary/70 h-6"></div>
+<div class="flex-1 bg-primary h-7 shadow-[0_0_6px_#a4c9ff]"></div>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md bg-surface-container-lowest/40 px-space-md py-space-xs flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Fulfillment Rate:</span>
+<span class="font-label-md text-label-md text-secondary font-mono">98.24% SLA Compliant</span>
+</div>
+</div>
+<!-- Tile 2: Gross Spend ($) -->
+<div class="bg-surface-container-low p-space-xl relative overflow-hidden shadow-md flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-secondary"></div>
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Total Gross Spend (YTD)</span>
+<span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-secondary/15 text-secondary font-label-sm text-label-sm tracking-widest uppercase">
+<span class="w-1.5 h-1.5 bg-secondary shadow-[0_0_6px_#4edea3]"></span>
+            +24.6% vs Q3 Target
+          </span>
+</div>
+<div class="flex items-baseline justify-between gap-space-md">
+<div class="font-metric-num-xl text-metric-num-xl text-secondary tracking-tight font-semibold drop-shadow-[0_0_12px_rgba(78,222,163,0.25)]">
+            $24,892,450<span class="text-secondary/70 font-metric-num-md text-metric-num-md">.00</span>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md bg-surface-container-lowest/40 px-space-md py-space-xs flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Average Order Value (AOV):</span>
+<span class="font-label-md text-label-md text-on-surface font-mono">$167.86 (+8.1%)</span>
+</div>
+</div>
+<!-- Tile 3: High-Value Tier Count -->
+<div class="bg-surface-container-low p-space-xl relative overflow-hidden shadow-md flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-tertiary"></div>
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">High-Value Tier Accounts</span>
+<span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-tertiary/15 text-tertiary font-label-sm text-label-sm tracking-widest uppercase">
+<span class="w-1.5 h-1.5 bg-tertiary shadow-[0_0_6px_#d0bcff]"></span>
+            Tier 1 > $5,000 Spend
+          </span>
+</div>
+<div class="flex items-baseline justify-between gap-space-md">
+<div class="font-metric-num-xl text-metric-num-xl text-tertiary tracking-tight font-semibold">
+            3,412 <span class="text-on-surface-variant font-label-md text-label-md uppercase tracking-wider font-normal">Entities</span>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md bg-surface-container-lowest/40 px-space-md py-space-xs flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Revenue Concentration:</span>
+<span class="font-label-md text-label-md text-tertiary font-mono">Top 2.3% gen 61.8% rev</span>
+</div>
+</div>
+</div>
+<!-- MONTH-OVER-MONTH REVENUE GROWTH & COHORT RUN-RATE VISUALIZATION -->
+<div class="bg-surface-container-low p-space-xl mb-space-xl shadow-md flex flex-col">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-lg mb-space-lg bg-surface-container-lowest/30 p-space-md">
+<div>
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 bg-secondary shadow-[0_0_6px_#4edea3]"></span>
+<h2 class="font-headline-md text-headline-md uppercase tracking-wide text-on-surface">Month-over-Month Revenue Growth & CTE Cohort Run-rate</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Aggregated recursive window queries evaluating recursive cohort ARR progression (Jan - Dec 2024)</p>
+</div>
+<!-- Segment Switcher -->
+<div class="inline-flex bg-surface-container-lowest p-space-xs self-start lg:self-center shadow-inner">
+<button class="px-space-lg py-space-xs font-label-sm text-label-sm uppercase tracking-wider bg-surface-container text-primary font-semibold shadow-sm">Gross Revenue ($)</button>
+<button class="px-space-lg py-space-xs font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors">Net Volume</button>
+<button class="px-space-lg py-space-xs font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors">Cohort Run-Rate</button>
+</div>
+</div>
+<!-- Bar Chart Canvas SVG -->
+<div class="relative w-full overflow-x-auto">
+<div class="min-w-[840px] h-72 flex flex-col justify-end relative pt-space-2xl px-space-md">
+<!-- Target Line Overlay -->
+<div class="absolute left-0 right-0 top-16 flex items-center pointer-events-none z-10">
+<div class="w-full border-t border-dashed border-primary/50 relative">
+<span class="absolute -top-3 right-6 bg-primary/20 text-primary font-label-sm text-label-sm uppercase tracking-widest px-space-sm py-space-xs shadow-sm">
+              Q4 Milestone Threshold: $2.50M / mo
+            </span>
+</div>
+</div>
+<!-- 12-Month Bar Grid -->
+<div class="grid grid-cols-12 gap-space-md items-end h-48 w-full z-0">
+<!-- Jan -->
+<div class="group flex flex-col items-center h-full justify-end">
+<div class="font-label-sm text-label-sm text-outline group-hover:text-on-surface transition-colors mb-space-xs font-mono">$1.4M</div>
+<div class="w-full bg-surface-container-highest group-hover:bg-primary transition-all duration-300" style="height: 43%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-space-md">Jan</span>
+</div>
+<!-- Feb -->
+<div class="group flex flex-col items-center h-full justify-end">
+<div class="font-label-sm text-label-sm text-outline group-hover:text-on-surface transition-colors mb-space-xs font-mono">$1.6M</div>
+<div class="w-full bg-surface-container-highest group-hover:bg-primary transition-all duration-300" style="height: 50%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-space-md">Feb</span>
+</div>
+<!-- Mar -->
+<div class="group flex flex-col items-center h-full justify-end">
+<div class="font-label-sm text-label-sm text-outline group-hover:text-on-surface transition-colors mb-space-xs font-mono">$1.7M</div>
+<div class="w-full bg-surface-container-highest group-hover:bg-primary transition-all duration-300" style="height: 53%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-space-md">Mar</span>
+</div>
+<!-- Apr -->
+<div class="group flex flex-col items-center h-full justify-end">
+<div class="font-label-sm text-label-sm text-outline group-hover:text-on-surface transition-colors mb-space-xs font-mono">$1.9M</div>
+<div class="w-full bg-surface-container-highest group-hover:bg-primary transition-all duration-300" style="height: 59%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-space-md">Apr</span>
+</div>
+<!-- May -->
+<div class="group flex flex-col items-center h-full justify-end">
+<div class="font-label-sm text-label-sm text-outline group-hover:text-on-surface transition-colors mb-space-xs font-mono">$2.1M</div>
+<div class="w-full bg-surface-container-highest group-hover:bg-primary transition-all duration-300" style="height: 65%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-space-md">May</span>
+</div>
+<!-- Jun -->
+<div class="group flex flex-col items-center h-full justify-end">
+<div class="font-label-sm text-label-sm text-outline group-hover:text-on-surface transition-colors mb-space-xs font-mono">$2.0M</div>
+<div class="w-full bg-surface-container-highest group-hover:bg-primary transition-all duration-300" style="height: 62%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-space-md">Jun</span>
+</div>
+<!-- Jul -->
+<div class="group flex flex-col items-center h-full justify-end">
+<div class="font-label-sm text-label-sm text-outline group-hover:text-on-surface transition-colors mb-space-xs font-mono">$2.3M</div>
+<div class="w-full bg-surface-container-highest group-hover:bg-primary transition-all duration-300" style="height: 71%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-space-md">Jul</span>
+</div>
+<!-- Aug -->
+<div class="group flex flex-col items-center h-full justify-end">
+<div class="font-label-sm text-label-sm text-outline group-hover:text-on-surface transition-colors mb-space-xs font-mono">$2.4M</div>
+<div class="w-full bg-surface-container-highest group-hover:bg-primary transition-all duration-300" style="height: 75%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-space-md">Aug</span>
+</div>
+<!-- Sep -->
+<div class="group flex flex-col items-center h-full justify-end">
+<div class="font-label-sm text-label-sm text-outline group-hover:text-on-surface transition-colors mb-space-xs font-mono">$2.6M</div>
+<div class="w-full bg-secondary-container/60 group-hover:bg-secondary transition-all duration-300" style="height: 81%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-space-md">Sep</span>
+</div>
+<!-- Oct -->
+<div class="group flex flex-col items-center h-full justify-end">
+<div class="font-label-sm text-label-sm text-outline group-hover:text-on-surface transition-colors mb-space-xs font-mono">$2.7M</div>
+<div class="w-full bg-secondary-container/70 group-hover:bg-secondary transition-all duration-300" style="height: 84%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-space-md">Oct</span>
+</div>
+<!-- Nov -->
+<div class="group flex flex-col items-center h-full justify-end">
+<div class="font-label-sm text-label-sm text-outline group-hover:text-on-surface transition-colors mb-space-xs font-mono">$2.9M</div>
+<div class="w-full bg-secondary-container/90 group-hover:bg-secondary transition-all duration-300 shadow-[0_0_12px_rgba(0,165,114,0.4)]" style="height: 90%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-space-md">Nov</span>
+</div>
+<!-- Dec -->
+<div class="group flex flex-col items-center h-full justify-end">
+<div class="font-label-sm text-label-sm text-secondary font-bold group-hover:text-on-surface transition-colors mb-space-xs font-mono">$3.2M</div>
+<div class="w-full bg-secondary shadow-[0_0_16px_rgba(78,222,163,0.6)] transition-all duration-300" style="height: 100%;"></div>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase mt-space-md">Dec</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Cohort Telemetry Meta Footer -->
+<div class="mt-space-lg pt-space-md bg-surface-container-lowest/60 px-space-lg py-space-sm flex flex-wrap items-center justify-between gap-space-md text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<div class="flex items-center gap-space-lg flex-wrap">
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-xs text-secondary">check_circle</span>
+<span>Median Payback Window: <strong class="text-on-surface">42 Days</strong></span>
+</span>
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-xs text-primary">analytics</span>
+<span>Blended CAC Efficiency: <strong class="text-on-surface">4.8x</strong></span>
+</span>
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-xs text-secondary">trending_down</span>
+<span>Aggregate Net Churn: <strong class="text-secondary">-0.4%</strong> (Expansion Outweighs)</span>
+</span>
+</div>
+<div class="font-mono text-outline">CTE COMPUTATION COST: 114ms / 8.2MB MEMORY</div>
+</div>
+</div>
+<!-- RFM SPEND & CUSTOMER VALUE SEGMENTATION TABLE -->
+<div class="bg-surface-container-low p-space-xl shadow-md">
+<!-- Table Controls Toolbar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 bg-tertiary shadow-[0_0_6px_#d0bcff]"></span>
+<h2 class="font-headline-md text-headline-md uppercase tracking-tight text-on-surface">RFM Spend & Cohort Segmentation</h2>
+</div>
+<span class="px-space-md py-space-xs bg-surface-container font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Top Tier Accounts (Ranked)</span>
+</div>
+<div class="flex items-center gap-space-md flex-wrap">
+<!-- Search filter input -->
+<div class="relative flex items-center bg-surface-container-lowest px-space-md py-space-xs focus-within:ring-1 focus-within:ring-primary shadow-inner">
+<span class="material-symbols-outlined text-outline text-sm mr-space-xs">filter_list</span>
+<input class="bg-transparent border-0 p-0 font-body-sm text-body-sm text-on-surface placeholder-outline focus:outline-none w-48 lg:w-60" placeholder="Filter company, contact, or state..." type="text"/>
+</div>
+<!-- Tier Dropdown / Segment Pill -->
+<div class="flex items-center bg-surface-container-lowest p-space-xs shadow-inner">
+<button class="px-space-md py-space-xs font-label-sm text-label-sm uppercase tracking-wider bg-surface-container text-on-surface font-semibold shadow-sm">All Tiers</button>
+<button class="px-space-md py-space-xs font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors">Tier 1 Elite</button>
+<button class="px-space-md py-space-xs font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors">Tier 2 Growth</button>
+<button class="px-space-md py-space-xs font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors">Tier 3 Stable</button>
+</div>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-md px-space-md">Rank</th>
+<th class="py-space-md px-space-md">Customer / Organization</th>
+<th class="py-space-md px-space-md">Region</th>
+<th class="py-space-md px-space-md">Order Frequency</th>
+<th class="py-space-md px-space-md">Total Gross Spend</th>
+<th class="py-space-md px-space-md">Quartile Tier</th>
+<th class="py-space-md px-space-md">Activity / Telemetry</th>
+<th class="py-space-md px-space-md text-right">Inspect</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Row 1: VIP Elite -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md font-mono">
+<span class="inline-flex items-center justify-center px-space-sm py-space-xs bg-primary/10 text-primary font-bold shadow-sm">#01</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 bg-surface-container-highest flex items-center justify-center font-label-md text-label-md font-bold text-tertiary">NV</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md uppercase tracking-tight text-on-surface font-semibold group-hover:text-primary transition-colors">Novus Vantage Global</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">contact@novus-vantage.com • Sarah Lin (VP Ops)</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-sm py-space-xs bg-surface-container font-label-sm text-label-sm uppercase font-mono text-on-surface">CA</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<span class="font-mono text-on-surface font-semibold">842 orders</span>
+<div class="w-16 h-1.5 bg-surface-container-highest">
+<div class="h-1.5 bg-primary w-full"></div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-mono">
+<span class="text-secondary font-bold font-metric-num-md text-metric-num-md">$482,910.00</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-space-xs px-space-md py-space-xs bg-tertiary/20 text-tertiary font-label-sm text-label-sm uppercase tracking-wider font-semibold shadow-[0_0_8px_rgba(208,188,255,0.3)]">
+<span class="w-1.5 h-1.5 bg-tertiary"></span>
+                Tier 1 - VIP Elite
+              </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="w-1.5 h-1.5 bg-secondary"></span>
+<span class="font-mono">Active 2h ago</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="p-space-xs bg-surface-container hover:bg-primary hover:text-on-primary transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Platinum Tier -->
+<tr class="hover:bg-surface-container transition-colors group bg-surface-container-lowest/20">
+<td class="py-space-md px-space-md font-mono">
+<span class="inline-flex items-center justify-center px-space-sm py-space-xs bg-primary/10 text-primary font-bold shadow-sm">#02</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 bg-surface-container-highest flex items-center justify-center font-label-md text-label-md font-bold text-tertiary">AP</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md uppercase tracking-tight text-on-surface font-semibold group-hover:text-primary transition-colors">Apex Prime Synthetics</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">procure@apexprime.co • Marcus Vance (Dir. Supply)</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-sm py-space-xs bg-surface-container font-label-sm text-label-sm uppercase font-mono text-on-surface">NY</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<span class="font-mono text-on-surface font-semibold">715 orders</span>
+<div class="w-16 h-1.5 bg-surface-container-highest">
+<div class="h-1.5 bg-primary w-[85%]"></div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-mono">
+<span class="text-secondary font-bold font-metric-num-md text-metric-num-md">$394,120.00</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-space-xs px-space-md py-space-xs bg-tertiary/15 text-tertiary font-label-sm text-label-sm uppercase tracking-wider font-semibold">
+<span class="w-1.5 h-1.5 bg-tertiary"></span>
+                Tier 1 - Platinum
+              </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="w-1.5 h-1.5 bg-secondary"></span>
+<span class="font-mono">Active 4h ago</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="p-space-xs bg-surface-container hover:bg-primary hover:text-on-primary transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Platinum Tier -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md font-mono">
+<span class="inline-flex items-center justify-center px-space-sm py-space-xs bg-primary/10 text-primary font-bold shadow-sm">#03</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 bg-surface-container-highest flex items-center justify-center font-label-md text-label-md font-bold text-tertiary">HC</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md uppercase tracking-tight text-on-surface font-semibold group-hover:text-primary transition-colors">Helios Cloud Systems</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">finances@helios-cloud.io • Elena Rostova (CRO)</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-sm py-space-xs bg-surface-container font-label-sm text-label-sm uppercase font-mono text-on-surface">TX</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<span class="font-mono text-on-surface font-semibold">684 orders</span>
+<div class="w-16 h-1.5 bg-surface-container-highest">
+<div class="h-1.5 bg-primary w-[78%]"></div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-mono">
+<span class="text-secondary font-bold font-metric-num-md text-metric-num-md">$341,890.00</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-space-xs px-space-md py-space-xs bg-tertiary/15 text-tertiary font-label-sm text-label-sm uppercase tracking-wider font-semibold">
+<span class="w-1.5 h-1.5 bg-tertiary"></span>
+                Tier 1 - Platinum
+              </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="w-1.5 h-1.5 bg-secondary"></span>
+<span class="font-mono">Active 1d ago</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="p-space-xs bg-surface-container hover:bg-primary hover:text-on-primary transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Growth Tier -->
+<tr class="hover:bg-surface-container transition-colors group bg-surface-container-lowest/20">
+<td class="py-space-md px-space-md font-mono">
+<span class="inline-flex items-center justify-center px-space-sm py-space-xs bg-surface-container text-on-surface-variant font-bold shadow-sm">#04</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 bg-surface-container-highest flex items-center justify-center font-label-md text-label-md font-bold text-primary">KL</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md uppercase tracking-tight text-on-surface font-semibold group-hover:text-primary transition-colors">Krypton Logistics Intl</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">api-team@krypton-intl.com • David Chen</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-sm py-space-xs bg-surface-container font-label-sm text-label-sm uppercase font-mono text-on-surface">WA</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<span class="font-mono text-on-surface font-semibold">512 orders</span>
+<div class="w-16 h-1.5 bg-surface-container-highest">
+<div class="h-1.5 bg-primary-container w-[61%]"></div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-mono">
+<span class="text-secondary font-bold font-metric-num-md text-metric-num-md">$279,540.00</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-space-xs px-space-md py-space-xs bg-primary/10 text-primary font-label-sm text-label-sm uppercase tracking-wider font-semibold">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+                Tier 2 - Growth
+              </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="w-1.5 h-1.5 bg-outline"></span>
+<span class="font-mono">Active 3d ago</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="p-space-xs bg-surface-container hover:bg-primary hover:text-on-primary transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: Growth Tier -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md font-mono">
+<span class="inline-flex items-center justify-center px-space-sm py-space-xs bg-surface-container text-on-surface-variant font-bold shadow-sm">#05</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 bg-surface-container-highest flex items-center justify-center font-label-md text-label-md font-bold text-primary">OD</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md uppercase tracking-tight text-on-surface font-semibold group-hover:text-primary transition-colors">OmniData Foundry</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">accounts@omnidata.io • Lisa Sterling</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-sm py-space-xs bg-surface-container font-label-sm text-label-sm uppercase font-mono text-on-surface">IL</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<span class="font-mono text-on-surface font-semibold">430 orders</span>
+<div class="w-16 h-1.5 bg-surface-container-highest">
+<div class="h-1.5 bg-primary-container w-[52%]"></div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-mono">
+<span class="text-secondary font-bold font-metric-num-md text-metric-num-md">$218,600.00</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-space-xs px-space-md py-space-xs bg-primary/10 text-primary font-label-sm text-label-sm uppercase tracking-wider font-semibold">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+                Tier 2 - Growth
+              </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="w-1.5 h-1.5 bg-secondary"></span>
+<span class="font-mono">Active 6h ago</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="p-space-xs bg-surface-container hover:bg-primary hover:text-on-primary transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</button>
+</td>
+</tr>
+<!-- Row 6: Growth Tier -->
+<tr class="hover:bg-surface-container transition-colors group bg-surface-container-lowest/20">
+<td class="py-space-md px-space-md font-mono">
+<span class="inline-flex items-center justify-center px-space-sm py-space-xs bg-surface-container text-on-surface-variant font-bold shadow-sm">#06</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 bg-surface-container-highest flex items-center justify-center font-label-md text-label-md font-bold text-primary">SC</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md uppercase tracking-tight text-on-surface font-semibold group-hover:text-primary transition-colors">Stratosphere Corp</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">enterprise@stratosphere.tech • Robert Thorne</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-sm py-space-xs bg-surface-container font-label-sm text-label-sm uppercase font-mono text-on-surface">MA</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<span class="font-mono text-on-surface font-semibold">394 orders</span>
+<div class="w-16 h-1.5 bg-surface-container-highest">
+<div class="h-1.5 bg-primary-container w-[46%]"></div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-mono">
+<span class="text-secondary font-bold font-metric-num-md text-metric-num-md">$192,400.00</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-space-xs px-space-md py-space-xs bg-primary/10 text-primary font-label-sm text-label-sm uppercase tracking-wider font-semibold">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+                Tier 2 - Growth
+              </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="w-1.5 h-1.5 bg-outline"></span>
+<span class="font-mono">Active 5d ago</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="p-space-xs bg-surface-container hover:bg-primary hover:text-on-primary transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Query Latency Strip -->
+<div class="mt-space-lg pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md bg-surface-container-lowest/40 px-space-lg py-space-sm">
+<div class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-mono">
+        DISPLAYING 1-6 OF 3,412 MATCHING COHORT ENTITIES
+      </div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-xs bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface-variant disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="px-space-md py-space-xs bg-primary text-on-primary font-mono font-bold font-label-sm text-label-sm">1</button>
+<button class="px-space-md py-space-xs bg-surface-container hover:bg-surface-container-high transition-colors font-mono font-label-sm text-label-sm text-on-surface">2</button>
+<button class="px-space-md py-space-xs bg-surface-container hover:bg-surface-container-high transition-colors font-mono font-label-sm text-label-sm text-on-surface">3</button>
+<span class="px-space-xs text-outline">...</span>
+<button class="px-space-md py-space-xs bg-surface-container hover:bg-surface-container-high transition-colors font-mono font-label-sm text-label-sm text-on-surface">569</button>
+<button class="px-space-md py-space-xs bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for Refresh CTE Cache button
+  const refreshBtn = document.getElementById('refreshCteBtn');
+  const refreshIcon = document.getElementById('refreshIcon');
+  if (refreshBtn && refreshIcon) {
+    refreshBtn.addEventListener('click', () => {
+      refreshIcon.classList.add('rotate-180');
+      refreshBtn.classList.add('opacity-75');
+      setTimeout(() => {
+        refreshIcon.classList.remove('rotate-180');
+        refreshBtn.classList.remove('opacity-75');
+      }, 600);
+    });
+  }
+</script></main><footer class="fixed bottom-0 left-64 right-0 h-8 z-40 bg-surface-container-low border-t border-outline-variant px-margin-md flex items-center justify-between"><div class="flex items-center gap-space-md font-label-sm text-label-sm text-outline"><span class="inline-block w-1.5 h-1.5 bg-secondary"></span><span>PostgreSQL 16.2 Read Replica (Sync delay: 14ms) • MariaDB Analytics Engine active</span></div><div class="flex items-center gap-space-lg font-label-sm text-label-sm text-outline hidden md:flex"><span>TLS 1.3 CIPHER: AES-GCM-256</span><span>SYSTEM LOAD: 0.18</span></div></footer></div></body></html>
